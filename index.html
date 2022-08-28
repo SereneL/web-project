@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ｎ｜首頁</title>
+        <link rel="icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+        <script>
+            function expandS(){
+                document.getElementById('s').style.animation = "s 0.3s ease-in 1";
+                document.getElementById('t').style.visibility = "visible";
+                setTimeout(show, 200);
+                document.getElementById("s").style.left = "300px";
+            }
+
+            function show(){
+                // document.getElementById("gradient").style.animation = "gradient 2s linear 1";
+                document.getElementById("gradient").style.background = "radial-gradient(circle at top right, #000000 1%, transparent), radial-gradient(circle at bottom left, #000000 1%, transparent)";
+                document.getElementById('t').style.visibility = "visible";              
+                document.getElementById('d').style.animation = "d 0.3s ease-out 1";
+                document.getElementById('e').style.animation = "e 0.3s ease-out 1";
+                document.getElementById('f').style.animation = "f 0.3s ease-out 1";
+                document.getElementById('g').style.animation = "g 0.3s ease-out 1";
+                document.getElementById('d').style.visibility = "visible";
+                document.getElementById('e').style.visibility = "visible";
+                document.getElementById('f').style.visibility = "visible";
+                document.getElementById('g').style.visibility = "visible";             
+            }
+        </script>
+    </head>
+
+    <body id="gradient">
+    <div >
+        <div id="s" onclick="expandS();">
+            <div id="a"></div>
+            <div id="b"></div>
+            <div id="c"></div>
+        </div>
+        <div id="t">
+            <a href="login.html"><div id="d"><br>LOGIN</div></a>
+            <a href="recommend.html"><div id="e"><br>RECOMMEND</div></a>
+            <a href="game.html"><div id="f"><br>GAME</div></a>
+            <a href="quiz.html"><div id="g"><br>QUIZ</div></a>
+        </div>
+    </div>
+    </body>
+</html>

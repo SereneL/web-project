@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ｎ｜瀏覽</title>
+        <link rel="icon" href="img/favicon.ico">
+        <link rel="stylesheet" href="index.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Serif+TC&display=swap" rel="stylesheet">
+        <script src="data.js"></script>
+    </head>
+    <body>
+        <div class="banner">
+            <span class="blank_space"><a class="link" href="index.html">N</a></span>
+            <span class="label"><a class="link" href="index.html">首頁</a></span>
+            <span class="label"><a class="link" href="recommend.html">推薦</a></span>
+            <span class="label"><a class="link" href="game.html">遊戲</a></span>
+            <span class="label"><a class="link" href="quiz.html">QUIZ</a></span>
+            <span id="greet" onclick="greet();"></span>
+            <span id="wh" class="material-symbols-outlined">waving_hand</span>
+            <span class="blkspc_sear">　</span>
+            <span id="search"><input type="text" id="mysearch" placeholder=" 片名"></span>
+            <span class="material-symbols-outlined" onclick="search()">search</span>
+        </div>
+        <script>
+            greet();
+            document.getElementById("mysearch").addEventListener("keypress", function(){
+                if(event.key == "Enter"){
+                    event.preventDefault();
+                    search();
+                }
+            })
+
+            function greet(){
+                var n = greeting.length;
+                var seed = Math.floor(Math.random() * n);
+                document.getElementById("greet").innerHTML = greeting[seed];
+            }
+        </script>
+        <div id="view_section">
+            <p id="title_list"><span id="borderLeft">▍</span>L I S T</p>
+            <div id="view_-1"> <!--no result-->
+                NO RESULT
+            </div>
+            <table id="view_table_0"> <!--荒唐分局-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/title/70281562" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcOR11toWbKUOO_ibfUC7bsvqr8m1sJb361kc39sge9tX9uWLXF4v3GK8rhQCAcgzdsob9cIuTAROU103sXJBCgNRZEwQvditgs.webp?r=53a"></a>
+                    <td colspan="3" class="film_title">荒唐分局
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2013 - 2021
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        劇集背景設定在紐約市警察局旗下，位於布魯克林區的99分局（虛構），講述發生在分局的各位警探和新上任的總警司之間的趣事。很好笑很適合吃飯看，每集大概20分鐘左右，在警局背景下的影集，已經完結了希望可以拍200季。
+                </tr>
+            </table>
+            <table id="view_table_1">  <!--良善之地-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/title/80113701" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABfwtq-p6Gk_EVDhVhY5usCG9uwlUtJXz4vqe748uG-JqR0BzoEQfemyLdziNaw98tDNEX2DRcXmyngRAraXnbR4Rtb0nsODbrV4.webp?r=29f"></a>
+                    <td colspan="3" class="film_title">良善之地
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2016 - 2020
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        主角在遭遇意外身亡後，醒來的時候發現自己抵達來世「良善之地」。只有四季而已很快就會看完，劇情設定很有趣，整體是很輕鬆幽默的影集，有大量荒謬笑點，也有會引起思考的議題，雖然是很久以前看的，但記得蠻好看！
+                </tr>
+            </table>
+            <table id="view_table_2">  <!--千萬別抬頭-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/title/81252357" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABc8eXvsFr29CQ6dGXeKuPY7E1mGd18ivL_5o1thyc6fiMiJbtbjNcqdcZ-2KxxDX0RSEKLJ9cj2C6tUGr9RxZhSxKHMPx36eBLmKmNzFM9xTdS04lY7R9B8nKGyAnBlzOKjP.jpg?r=a00"></a>
+                    <td colspan="3" class="film_title">千萬別抬頭
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2021
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        以諷刺政治為主軸，一名天文學博士生和他的教授意外發現從未見過的彗星。經過計算，教授估計這顆彗星會在半年後撞擊地球，但許多人並沒有將這場即將發生的災難放在心上，這顆彗星甚至成了政客進行權力算計的籌碼。
+                </tr>
+            </table>
+            <table id="view_table_3">  <!--紙房子-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/title/80192098" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABVHuMicVdBCAOg2CDaQWyIA0Ts7RIkQSJrWME4rwQ8-So5hdPUPdRfACKgHzsSeyfYkKYZzG6B-KmyiUd-y0e7QM-EiyJqyuEu53vfllrXq-UUUUpm01jqkBK_q7ZX1aSgFl.jpg?r=e83"></a>
+                    <td colspan="3" class="film_title">紙房子
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2017 - 2021
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        是一部西班牙搶劫犯罪影集，總共有５季，前兩季劇情為「教授」召集了8名不同背景的罪犯，計畫打劫馬德里鑄幣廠，以及與計畫相關的故事，後三季為另一場搶案。前兩季步調比較慢，會是一集接一集熬夜看的那種，很刺激精彩，人物也刻畫得很棒，看完很想學西班牙文。
+                </tr>
+            </table>
+            <table id="view_table_4">  <!--D.P：逃兵追緝令-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/title/81280917" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXzaB1bxAD9shTaJk1MNJK63wpIER9OvN6deLtunEHUsM7xG7mObZwz9mQL_TZD2BCmbLTdffWSt5CagKo4jSVn2ykqwh-OJPRGw3k2Tiaoe_GCbxskT9TbKZMytC1K1OT_g.jpg?r=3d1"></a>
+                    <td colspan="3" class="film_title">D.P：逃兵追緝令
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2021
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        以逃兵抓緝的韓國憲兵（現韓國軍事警察）為背景，講述韓國軍營霸凌問題，主角在追逐逃兵的過程中經歷的故事。整部影集目前只有６集，雖然算是蠻沉重的主題和劇情，但不會無聊，個人覺得很好看，最後結局蠻衝擊的，是會讓觀眾思考的影集。
+                </tr>
+            </table>
+            <table id="view_table_5">  <!--俄羅斯娃娃：派對迴旋-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/tw/title/80211627" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABaIEaDocUI2EX2-44SvCN1AIapACpjr3Fy-0__ovxi9fMNXPghUHkUgzdST5EXEQfHIdw7fc1a-lFk7pTdbV31yQU8iuwJuH_jyBy8LAfS6mgINJVkaWCe_AXROK5u1DRRi7.jpg?r=6ae"></a>
+                    <td colspan="3" class="film_title">俄羅斯娃娃：派對迴旋
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2019, 2022
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        主角在生日當天不幸過世後，卻發現自己重回生日派對，再一次的在生日當天死亡並重回生日當天。在不斷重複死亡重生的時間迴圈中，主角努力地尋找脫離時間迴圈的方式，並在重生時嘗試做出不同於過去的選擇。是一部黑色幽默喜劇，有點燒腦但很精采，適合喜歡非線性時間劇情的人。
+                </tr>
+            </table>
+            <table id="view_table_6">  <!--烏鴉足球隊-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/tw/title/80030346" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQvPmqyy5L3XwJNCaPWQ0cJXLnBfX9eNjojJVM3xhTV3AcvTwVMvF2LkmtMmyaAzTNJzyUVVyewSQY0DpnyQkvcebGPLXa2wx57mIRoDvjkRPyTMDud0i6KRYRXFi_KuBPke.jpg?r=4db"></a>
+                    <td colspan="3" class="film_title">烏鴉足球隊
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2015 - 2019
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        一對姐弟在父親過世後接手家族的足球隊，卻因彼此無法協調而不斷衝突，發生許多荒謬又好笑的事。這是一部墨西哥喜劇，除了搞笑的劇情外也有提到墨西哥的社會議題，整體來說還蠻推薦看的，想看喜劇的人可以去看看。
+                </tr>
+            </table>
+            <table id="view_table_7">  <!--歡樂合唱團-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/tw/title/70143843" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcIlhkyI_Y029Irb-i6tgp_oyFROEReq8FZuhK99TfbVb3Wq7TUXgWD5qZqYFkVtN4oQeSHW2xqOtEuvchMh28TmvG4e0et5lhg.webp?r=6b2"></a>
+                    <td colspan="3" class="film_title">歡樂合唱團
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2009 - 2015
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        描述一個不受重視、不被看好的合唱團，成員從遭受霸凌到逐漸找到自己的夢想、獲得尊重的過程。算是一部校園喜劇，因為劇情圍繞在合唱團上，所以有很多的歌曲演唱（類似歌喉讚）。雖然到後面幾季劇情真的不怎麼樣，有些地方還被我快轉，但裡面演員翻唱（也有部分原創歌曲）的歌都蠻好聽的，有些歌到現在我都還有在聽。
+                </tr>
+            </table>
+            <table id="view_table_8">  <!--米達斯之僕-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/tw/title/81051782" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcpv8D7dIDgwlDXmaRAlZ6v9hNzY3oN_JX-RfS6-Ietv0-dCOrGqjWgSrE4Mc6CDUpIojBh4QfmGPs_m6_uzhq5H3YoQmOlTkf3n6hqBr394vF6s0uQ5p4z3WYos2THrjg46.jpg?r=650"></a>
+                    <td colspan="3" class="film_title">米達斯之僕
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2020
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        西班牙懸疑驚悚影集，敘述一個商業集團負責人遭到勒索，對方要求支付鉅額款項，若不願意支付則會有隨機的民眾死亡。只有短短六集但很精采，劇中刻劃出人類在道德、個人利益間的掙扎及衝突，很推薦能接受比較黑暗的劇情的人去看。
+                </tr>
+            </table>
+            <table id="view_table_9">  <!--陰謀辦公室-->
+                <tr>
+                    <td colspan="2" rowspan="5"><a href="https://www.netflix.com/tw/title/80995819" target="_blank"><img id="film_pic" src="https://occ-0-3594-3996.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQmN2RZvMRXSCH1upzEv0AcWxFEo6OiD8n8fwKX3qiLYcUWt5PKOtv2isNzdArJOCtUpqXBPS27K8cBdZao7kF54Mjtht8-s0hn2GrpHVrCRyV4u_NTwNJ444Hp5DKxdcMHV.jpg?r=39e"></a>
+                    <td colspan="3" class="film_title">陰謀辦公室
+                </tr>
+                <tr>
+                    <td colspan="3" id="film_year">．2021
+                </tr>
+                <tr>
+                    <td colspan="3" rowspan="3" id="film_content">
+                        美國的動畫喜劇。在這部動畫中，世界上所有的重大事件都是由一個神秘組織操控，而主角就是神秘組織相關公司的員工。劇中有不少諷刺時事的劇情、也提到很多陰謀論，是一部黑色幽默喜劇。看完這部動畫，你會發現原來驚動世界的大事件也可以從這麼瘋狂荒謬的角度去解釋！
+                </tr>
+            </table>
+            <button id="go_view" ><a href="view.html">回瀏覽</a></button>
+        </div>
+        <div id="tab">
+            <ul>
+                <a href="#title_list"><li>荒唐分局</li></a>
+                <a href="#view_table_0"><li>良善之地</li></a>
+                <a href="#view_table_1"><li>千萬別抬頭</li></a>
+                <a href="#view_table_2"><li>紙房子</li></a>
+                <a href="#view_table_3"><li>D.P：逃兵追緝令</li></a>
+                <a href="#view_table_4"><li>俄羅斯娃娃：派對迴旋</li></a>
+                <a href="#view_table_5"><li>烏鴉足球隊</li></a>
+                <a href="#view_table_6"><li>歡樂合唱團</li></a>
+                <a href="#view_table_7"><li>米達斯之僕</li></a>
+                <a href="#view_table_8"><li>陰謀辦公室</li></a>
+            </ul>
+        </div>
+        <div id="go_top">      <!--回頂部-->
+            <a href="#top"><span class="material-symbols-outlined">expand_less</span></a>
+        </div>
+        <script>
+            function search(){      //搜尋
+                var sear = document.getElementById("mysearch").value;
+                if(sear != ""){
+                    document.getElementById("tab").style.display = "none";
+                    var status = false;              //status:符合的狀態, false=沒找到
+                    document.getElementById("go_view").style.display = "block";
+                    for (var i=0; i<film.length; i++){
+                        if(sear == film[i]){         //有結果
+                            status = true;
+                            document.getElementById("title_list").innerHTML="<font color='#c6030a'>▍</font>R E S U L T";
+                            result = "view_table_"+i;
+                            document.getElementById(result).style.display="block";
+                            document.getElementById("view_-1").style.display="none"; //隱藏no result
+                            for(var j=0; j<film.length; j++){
+                                if(sear != film[j]){
+                                    noresult = "view_table_"+j;
+                                    document.getElementById(noresult).style.display="none";
+                                }
+                            }
+                        }
+                    }
+                    if(status == false){            //沒結果
+                        if(sear != ""){             //搜尋不是空的
+                            document.getElementById("title_list").innerHTML="<font color='#c6030a'>▍</font>R E S U L T";
+                            document.getElementById("view_-1").style.display="block";
+                            for(var i=0; i<film.length; i++){
+                                result = "view_table_"+i;
+                                document.getElementById(result).style.display="none";
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ｎ｜遊戲</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,100;8..144,300;8..144,400;8..144,500;8..144,700;8..144,800&display=swap" rel="stylesheet">        
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="data.js"></script>
+    <script>
+        var imgArr = Array();//image src array
+        n = 16; //number of img
+        var idxArr = ["1.jpg","1.jpg","2.webp","2.webp","3.jpg","3.jpg","4.jpg","4.jpg","5.webp","5.webp",
+                        "6.jpg","6.jpg","7.jpg","7.jpg","8.jpg","8.jpg"];
+        var flipArr = Array();
+        var finish = 0; //紀錄遊戲是否結束
+        var flip_count = 0; //翻開的數量
+        var step = 0; //總共翻開幾次
+        var start;
+        var end;
+
+        function initialize(){
+            for(var i=1; i<n+1; i++){
+                document.getElementById(i).setAttribute("src", "img/0.webp");
+            }
+            finish = 0;
+            flip_count = 0;
+            step = 0;
+            flipArr = ["","","","","","","","","","","","","","","",""];
+            imgArr = ["","","","","","","","","","","","","","","",""]; 
+            document.getElementById("duration").style.visibility = "hidden";
+            // document.getElementById("duration").innerHTML = "Total Time: ";
+            //隨機把src放到array中
+            for(var i=1; i<n+1; i++){
+                var seed = Math.floor(Math.random() * n);
+                if(imgArr[seed] != ""){
+                    i--;
+                }
+                else{
+                    imgArr[seed] = "img/" + idxArr[i-1];
+                }
+            }
+        }
+
+        function clicked(imgIdx){
+            var newImg = document.getElementById(imgIdx);
+            if(step == 0){ //game start
+                start = Date.now();
+            }
+            if(flip_count < 2){ 
+                if(newImg.src == original_src && flipArr[imgIdx-1] == ""){
+                    flipArr[imgIdx-1] = "1";
+                    newImg.setAttribute("src", imgArr[imgIdx-1]);
+                    flip_count++;
+                    step++;
+                }
+                else if(flipArr[imgIdx-1] != "0"){
+                    flipArr[imgIdx-1] = "";
+                    newImg.setAttribute("src", "img/0.webp");
+                    flip_count--;
+                }
+            }
+            if(flip_count == 2){ //翻開2張時，判斷是否一樣
+                setTimeout(function(){isSame();}, 200);
+            }
+        }
+
+        function isSame(){
+            var tempArr = Array();
+            for(var i=0; i<n; i++){
+                if(flipArr[i] == "1"){
+                    tempArr.push(document.getElementById(i+1).src);
+                }
+            }
+
+            if(tempArr[0] == tempArr[1]){
+                alert("Match!");
+                flip_count = 0;
+                finish += 2;
+                for(var i=0; i<n; i++){
+                    if(flipArr[i] == "1"){
+                        flipArr[i] = "0"; //鎖定配對成功的圖不能再蓋回去
+                    }
+                }
+                if(finish == n){
+                    end = Date.now();
+                    alert("You did it!");
+                    gameDuration();
+                }
+            }
+            else{
+                alert("Not match!");
+                for(var i=0; i<n; i++){
+                    if(flipArr[i] == "1"){
+                        document.getElementById(i+1).setAttribute("src", "img/0.webp");  
+                        flipArr[i] = "";
+                    }
+                }
+                flip_count = 0; 
+            }
+        }
+
+        function gameDuration(){
+            var dur = (end - start)/1000;
+            document.getElementById("duration").style.visibility  = "visible";
+            document.getElementById("duration").innerHTML = "Total Time : "+ dur + " Seconds";
+        }
+
+        function greet(){
+            var n = greeting.length;
+            var seed = Math.floor(Math.random() * n);
+            document.getElementById("greet").innerHTML = greeting[seed];
+        }
+    </script>
+</head>
+
+<body>
+    <div class="banner">
+        <span class="blank_space"><a class="link" href="index.html">N</a></span>
+        <span class="label"><a class="link" href="index.html">首頁</a></span>
+        <span class="label"><a class="link" href="login.html">登入</a></span>
+        <span class="label"><a class="link" href="recommend.html">推薦</a></span>
+        <span class="label"><a class="link" href="quiz.html">QUIZ</a></span>
+        <span id="greet" onclick="greet();"></span>
+        <span id="wh" class="material-symbols-outlined">waving_hand</span>
+    </div>
+    <script>greet();</script>
+    <button id="NGButton" onclick="initialize();">New Game</button>
+    
+    <table id="game_table">
+        <tr>
+            <td><img src="img/0.webp" id="1" onclick="clicked(1);"></td>
+            <td><img src="img/0.webp" id="2" onclick="clicked(2);"></td>
+            <td><img src="img/0.webp" id="3" onclick="clicked(3);"></td>
+            <td><img src="img/0.webp" id="4" onclick="clicked(4);"></td>
+        </tr>
+        <tr>
+            <td><img src="img/0.webp" id="5" onclick="clicked(5);"></td>
+            <td><img src="img/0.webp" id="6" onclick="clicked(6);"></td>
+            <td><img src="img/0.webp" id="7" onclick="clicked(7);"></td>
+            <td><img src="img/0.webp" id="8" onclick="clicked(8);"></td>
+        </tr>
+        <tr>
+            <td><img src="img/0.webp" id="9" onclick="clicked(9);"></td>
+            <td><img src="img/0.webp" id="10" onclick="clicked(10);"></td>
+            <td><img src="img/0.webp" id="11" onclick="clicked(11);"></td>
+            <td><img src="img/0.webp" id="12" onclick="clicked(12);"></td>
+        </tr>
+        <tr>
+            <td><img src="img/0.webp" id="13" onclick="clicked(13);"></td>
+            <td><img src="img/0.webp" id="14" onclick="clicked(14);"></td>
+            <td><img src="img/0.webp" id="15" onclick="clicked(15);"></td>
+            <td><img src="img/0.webp" id="16" onclick="clicked(16);"></td>
+        </tr>
+    </table>
+    <p id="duration"></p>
+    <script>
+        initialize();
+        var original_src = document.getElementById("1").src;
+    </script>
+</body>
+</html>
